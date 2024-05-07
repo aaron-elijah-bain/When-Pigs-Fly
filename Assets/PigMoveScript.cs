@@ -30,6 +30,8 @@ public class PigMoveScript : MonoBehaviour
     public Color InspecColor;
     public static Color BlueColor;
 
+    public bool isDriving = false;
+
     private AirshipWorldScript AWS;
 
     // Start is called before the first frame update
@@ -83,9 +85,38 @@ public class PigMoveScript : MonoBehaviour
                 velocity = jumpPower;
             }
             grounded = false;
-        
+            
             controller.Move(Vector3.up*velocity);
-        }
+            
+            if(Input.GetKeyDown(KeyCode.E)){
+                if(!isDriving){
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if(Physics.Raycast(ray, out hit, Mathf.Infinity,~LayerMask.NameToLayer("Player"))){
+                    if(hit.transform.parent != null){
+                        GameObject CenterHolder = hit.transform.parent.Find("CenterHolder").gameObject;
+                    
+                        if(CenterHolder != null){
+                        CenterScript[] centerScripts = CenterHolder.GetComponentsInChildren<CenterScript>();
+                            for(var i = 0; i < centerScripts.Length; i++){
+                                if(centerScripts[i].Type == "Wheel"){
+                                    
+                                    
+                                    isDriving = true;
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                }else{
+                    isDriving = false;
+                }
+            }
+            
+                
+            }        
+
 
     }
     
