@@ -206,14 +206,7 @@ public class AirshipBlockScript : MonoBehaviour
         }else{
             rb.isKinematic = false;
         }
-        if(gameObject.tag == "Crystal"){
-            
-            if(AWS.Building){
-                transform.position = new Vector3(transform.position.x,2,transform.position.z);
-            }else{
-                rb.isKinematic = false;
-            }
-        }
+        
         if(AirshipWorldScript.SelectedObj == gameObject){
             if(Input.GetKey(KeyCode.Backspace)){
                 Destroy(gameObject);
