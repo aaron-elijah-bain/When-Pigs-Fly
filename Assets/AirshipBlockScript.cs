@@ -24,12 +24,15 @@ public class AirshipBlockScript : MonoBehaviour
 
     private MeshRenderer[] Sides;
         
-
+    private bool firstFrame = true;
     
 
     // Start is called before the first frame update
     void Start()
     {   
+
+  
+
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         neighbors = new List<GameObject>();
         neighborScripts = new List<AirshipBlockScript>();
@@ -134,12 +137,13 @@ public class AirshipBlockScript : MonoBehaviour
                
             }
 
-
+            if(Neighbor.gameObject.tag != "Crystal"){
             FixedJoint FJ = gameObject.AddComponent<FixedJoint>();
             FJ.connectedBody = neighbors[i].GetComponent<Rigidbody>();
             FJ.breakForce = Mathf.Infinity;
             FJ.breakTorque = Mathf.Infinity;
             FJ.enableCollision = true;
+            }
         }
 
         
@@ -194,32 +198,50 @@ public class AirshipBlockScript : MonoBehaviour
             }
         }
 
+
+        transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),Mathf.Round(transform.position.z));
+
+        transform.rotation = Quaternion.Euler(Mathf.Round(transform.rotation.eulerAngles.x/90)*90,Mathf.Round(transform.rotation.eulerAngles.y/90)*90,Mathf.Round(transform.rotation.eulerAngles.z/90)*90);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
-       
-        if(connected){
-            rb.isKinematic = true;
-        }else{
-            rb.isKinematic = false;
-        }
         
-        if(AirshipWorldScript.SelectedObj == gameObject){
+       
+        if(gameObject.tag == "Crystal"){
+            
+            if(AWS.Building){
+                transform.rotation = Quaternion.Euler(0,0,0);
+                transform.position = new Vector3(Mathf.Round(transform.position.x),2,Mathf.Round(transform.position.z));
+                rb.isKinematic = true;
+                
+            }else{
+                rb.isKinematic = false;
+            }
+        }else{
+             if(connected){
+                rb.isKinematic = true;
+            }else{
+                rb.isKinematic = false;
+            }
+        }
+        if(AirshipWorldScript.SelectedObj == gameObject && gameObject.tag != "Crystal"){
             if(Input.GetKey(KeyCode.Backspace)){
                 Destroy(gameObject);
             }
-        
+
             if(Input.GetKeyDown(KeyCode.X)){
-                transform.Rotate(90,0,0,Space.World);
+                transform.Rotate(90f,0f,0f,Space.World);
             }
             if(Input.GetKeyDown(KeyCode.Y)){
-                transform.Rotate(0,90,0,Space.World);            
+                transform.Rotate(0f,90f,0f,Space.World);            
             }
             if(Input.GetKeyDown(KeyCode.Z)){
-                transform.Rotate(0,0,90,Space.World);            
+                transform.Rotate(0f,0f,90f,Space.World);            
             }
             
 
@@ -292,6 +314,14 @@ public class AirshipBlockScript : MonoBehaviour
             }
            
 
+
+        }
+
+        if(firstFrame){
+            transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),Mathf.Round(transform.position.z));
+
+            transform.rotation = Quaternion.Euler(Mathf.Round(transform.rotation.eulerAngles.x/90)*90,Mathf.Round(transform.rotation.eulerAngles.y/90)*90,Mathf.Round(transform.rotation.eulerAngles.z/90)*90);
+            firstFrame = false;
 
         }
         

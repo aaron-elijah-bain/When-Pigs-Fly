@@ -89,10 +89,10 @@ public class AirshipWorldScript : MonoBehaviour
        
     
     public void SpawnBlock(Vector3 pos){
-        Quaternion rot = Quaternion.Euler(0,0,0);
+        
        
         
-        GameObject NewBlock = Instantiate(BaseBlock,pos,Quaternion.Euler((Rot.x*90)+rot.eulerAngles.x,(Rot.y*90)+rot.eulerAngles.y,(Rot.z*90)+rot.eulerAngles.z), Crystal.transform) as GameObject;
+        GameObject NewBlock = Instantiate(BaseBlock,pos,Quaternion.Euler((Rot.x*90),(Rot.y*90),(Rot.z*90)), Crystal.transform) as GameObject;
         GameObject CenterHolder = NewBlock.transform.Find("CenterHolder").gameObject;
         CenterHolder.transform.localScale = new Vector3(Mirror,1,1);
         GameObject center = Instantiate(Blocks[Selected],NewBlock.transform.position,NewBlock.transform.rotation,CenterHolder.transform) as GameObject;

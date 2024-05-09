@@ -11,21 +11,25 @@ public class CenterScript : MonoBehaviour
 
     private PigMoveScript playerScript;
 
-    private Rigidbody rb;
+    public Rigidbody Crystalrb;
 
     private GameObject Rotor;
 
     private float RotorRot = 0f;
 
     public float RotorSpeed = 5f;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         Type = gameObject.name;
         Type = Type.Replace("(Clone)","");
         playerScript = GameObject.FindWithTag("Player").GetComponent<PigMoveScript>();
-        rb = transform.parent.parent.GetComponent<Rigidbody>();
-
+        if(transform.parent.parent.parent != null){
+        Crystalrb = transform.parent.parent.parent.GetComponent<Rigidbody>();
+        }
+       
         MeshRenderer[] MRS = GetComponentsInChildren<MeshRenderer>();
         foreach(MeshRenderer mr in MRS){
             if(mr.gameObject != gameObject){
@@ -57,9 +61,12 @@ public class CenterScript : MonoBehaviour
             Rotor.transform.rotation = Quaternion.AngleAxis(RotorRot,transform.forward);
 
         }
-        if(Type == "Prop"){
-            rb.velocity = transform.forward * 10;
-        }
         
+        
+    }
+    private void FixedUpdate() {
+        if(Type == "Prop"){
+            Crystalrb.AddForceAtPosition(transform.forward*100,transform.position,ForceMode.Force);
+        }
     }
 }

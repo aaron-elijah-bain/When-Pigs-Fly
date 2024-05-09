@@ -228,6 +228,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2492,8 @@ MonoBehaviour:
   - left
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &3390317282107904499
 Transform:
   m_ObjectHideFlags: 0
@@ -2534,6 +2538,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!54 &3620208539857540410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2542,7 +2548,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7110885904361808958}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2749,6 +2755,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &4001867181545524274
 Transform:
   m_ObjectHideFlags: 0
@@ -2792,7 +2800,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654793771892096543}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -2808,7 +2816,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654793770833894470}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -2824,7 +2832,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654793770672997506}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -2840,7 +2848,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654793769993342520}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -2856,7 +2864,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654793770150075821}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -3126,6 +3134,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &5262588649380603206
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3346,6 +3356,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!1 &5643787203878925073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3386,6 +3398,8 @@ MonoBehaviour:
   - up
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &5674171266306889685
 Transform:
   m_ObjectHideFlags: 0
@@ -3564,6 +3578,8 @@ MonoBehaviour:
   - left
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!1 &6230683536792623664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,6 +3670,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &6533520242546441877
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3821,6 +3839,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!54 &7368767750712389539
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3829,7 +3849,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7381549123058102210}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -3898,6 +3918,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!23 &7457628289430959126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3961,6 +3983,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &7466095538502528162
 Transform:
   m_ObjectHideFlags: 0
@@ -4711,6 +4735,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &7719511430769589371
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4740,6 +4766,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!23 &7874370352470235975
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4803,6 +4831,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!1 &7915772505483543281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4881,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!23 &8017165383209205262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4914,6 +4946,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &8080921050381419023
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4951,6 +4985,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8135121774537926364
 Transform:
   m_ObjectHideFlags: 0
@@ -4987,6 +5023,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8220091910316619909
 Transform:
   m_ObjectHideFlags: 0
@@ -5065,6 +5103,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!23 &8235556842544238701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5128,6 +5168,8 @@ MonoBehaviour:
   - up
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &8240929302716348066
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5157,6 +5199,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8329422216236780777
 Transform:
   m_ObjectHideFlags: 0
@@ -5208,6 +5252,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8377379603373410435
 Transform:
   m_ObjectHideFlags: 0
@@ -5244,6 +5290,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!65 &8531556199227956584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5286,6 +5334,8 @@ MonoBehaviour:
   - down
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!1 &8581926400661570850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,6 +5436,8 @@ MonoBehaviour:
   - left
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &8750370644991586841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5430,6 +5482,8 @@ MonoBehaviour:
   - 
   - 
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!33 &8776145491755044192
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5459,6 +5513,8 @@ MonoBehaviour:
   - up
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8782184731382916993
 Transform:
   m_ObjectHideFlags: 0
@@ -5495,6 +5551,8 @@ MonoBehaviour:
   - left
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8789699875926437145
 Transform:
   m_ObjectHideFlags: 0
@@ -5531,6 +5589,8 @@ MonoBehaviour:
   - left
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
 --- !u!4 &8855766645550848723
 Transform:
   m_ObjectHideFlags: 0
@@ -5567,3 +5627,5 @@ MonoBehaviour:
   - up
   - down
   Type: 
+  Crystalrb: {fileID: 0}
+  RotorSpeed: 5
