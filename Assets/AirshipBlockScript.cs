@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AirshipBlockScript : MonoBehaviour
 {
-
+    //This script is the base for all blocks
     private Rigidbody rb;
 
     public List<GameObject> neighbors;
@@ -20,11 +20,13 @@ public class AirshipBlockScript : MonoBehaviour
     private AirshipWorldScript AWS;
 
     public GameObject center;
-    private CenterScript centerScript;
+    public CenterScript centerScript;
 
-    private MeshRenderer[] Sides;
+    private BlockSideScript[] Sides;
         
     private bool firstFrame = true;
+
+    public bool OldBuild = true;
     
 
     // Start is called before the first frame update
@@ -36,15 +38,23 @@ public class AirshipBlockScript : MonoBehaviour
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         neighbors = new List<GameObject>();
         neighborScripts = new List<AirshipBlockScript>();
-        rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false;
+        if(gameObject.tag == "Crystal"){
+            rb = GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+
+            rb.inertiaTensor = new Vector3(10,10,10);
+            crystal = this;
+        }else{
+            crystal = transform.parent.gameObject.GetComponent<AirshipBlockScript>();
+        }
         centerScript = center.GetComponentInChildren<CenterScript>();
-        crystal = GameObject.FindWithTag("Crystal").GetComponent<AirshipBlockScript>();
+
+        
 
         LayerMask mask = LayerMask.GetMask("OldBlock");
         Ground = LayerMask.GetMask("Ground");
 
-        Sides = GetComponentsInChildren<MeshRenderer>();
+        Sides = GetComponentsInChildren<BlockSideScript>();
 
         
 
@@ -137,13 +147,7 @@ public class AirshipBlockScript : MonoBehaviour
                
             }
 
-            if(Neighbor.gameObject.tag != "Crystal"){
-            FixedJoint FJ = gameObject.AddComponent<FixedJoint>();
-            FJ.connectedBody = neighbors[i].GetComponent<Rigidbody>();
-            FJ.breakForce = Mathf.Infinity;
-            FJ.breakTorque = Mathf.Infinity;
-            FJ.enableCollision = true;
-            }
+            
         }
 
         
@@ -153,7 +157,7 @@ public class AirshipBlockScript : MonoBehaviour
 
             Sides[i].gameObject.layer = LayerMask.NameToLayer("OldBlock");
 
-            BlockSideScript BSS = Sides[i].gameObject.GetComponent<BlockSideScript>();
+            BlockSideScript BSS = Sides[i];
             
 
             if(Sides[i].gameObject.name == "Front"){
@@ -209,26 +213,32 @@ public class AirshipBlockScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(OldBuild != AWS.Building && AWS.Building == true){
+            foreach(BlockSideScript Side in Sides){
+                Side.gameObject.SetActive(true);
+            }
+        }else if(OldBuild != AWS.Building && AWS.Building == false){
+            foreach(BlockSideScript Side in Sides){
+                Side.gameObject.SetActive(false);
+            }
+        }
         
         
-       
-        if(gameObject.tag == "Crystal"){
+
+       if(gameObject.tag == "Crystal"){
             
             if(AWS.Building){
                 transform.rotation = Quaternion.Euler(0,0,0);
-                transform.position = new Vector3(Mathf.Round(transform.position.x),2,Mathf.Round(transform.position.z));
+                
                 rb.isKinematic = true;
                 
             }else{
                 rb.isKinematic = false;
             }
-        }else{
-             if(connected){
-                rb.isKinematic = true;
-            }else{
-                rb.isKinematic = false;
-            }
+
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity,10);
         }
+        
         if(AirshipWorldScript.SelectedObj == gameObject && gameObject.tag != "Crystal"){
             if(Input.GetKey(KeyCode.Backspace)){
                 Destroy(gameObject);
@@ -325,6 +335,7 @@ public class AirshipBlockScript : MonoBehaviour
 
         }
         
+        OldBuild = AWS.Building; 
        
     }
 
@@ -355,11 +366,54 @@ public class AirshipBlockScript : MonoBehaviour
         }
         crystal.MakeConnected();
 
+        Rigidbody CrystRB = crystal.GetComponent<Rigidbody>();
+        
         foreach(AirshipBlockScript child in crystalChildren){
             if(!child.connected){
+                
+                Vector3 newCOM = ((CrystRB.centerOfMass * CrystRB.mass) - ((child.transform.position-crystal.transform.position) * child.centerScript.Mass))/(CrystRB.mass-child.centerScript.Mass);
+                CrystRB.centerOfMass = newCOM;
+                CrystRB.mass -= child.centerScript.Mass;
+               
+                child.rb = child.gameObject.AddComponent<Rigidbody>();
+                child.rb.mass = 1; //Change if more mass is needed, make this a variable
+                
+            }
+        }
+                                
+        foreach(AirshipBlockScript child in crystalChildren){
+            if(!child.connected){
+
+               
+                    
+                
+                for(var i = 0; i < child.neighborScripts.Count; i++){
+                    AirshipBlockScript MyNeighbor = child.neighborScripts[i];
+
+                    
+                    if(MyNeighbor.gameObject.tag != "Crystal"){
+                        FixedJoint FJ = child.gameObject.AddComponent<FixedJoint>();
+                        FJ.connectedBody = MyNeighbor.rb;
+                        FJ.breakForce = Mathf.Infinity;
+                        FJ.breakTorque = Mathf.Infinity;
+                        FJ.enableCollision = true;
+                    }
+
+                }
+
+                
+                    
+                
             child.transform.SetParent(null, true);
             }
         }
+        if(transform.parent != null){
+        
+        Vector3 newCOM = ((CrystRB.centerOfMass * CrystRB.mass) - ((transform.position-crystal.transform.position) * centerScript.Mass))/(CrystRB.mass-centerScript.Mass);
+        CrystRB.centerOfMass = newCOM;
+        CrystRB.mass -= centerScript.Mass;
+        }
+        
 
     }
 }

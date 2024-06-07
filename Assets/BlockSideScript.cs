@@ -34,12 +34,15 @@ public class BlockSideScript : MonoBehaviour
             WorldSpawner.facePos = transform.forward; //Used to offset placed block in the direcion this face points.
             if(Input.GetMouseButtonDown(0)){//If you left click...
                 WorldSpawner.SpawnBlock(WorldSpawner.GhostPos);//Spawn a block
+                
             }
             if(Input.GetMouseButtonDown(1)){//If you right click...
                 if(AirshipWorldScript.SelectedObj == transform.parent.gameObject){//If you are selected...
                     AirshipWorldScript.SelectedObj = null;//Make not selected
+                    AirshipWorldScript.SelectedCenter = null;
                 }else{
                     AirshipWorldScript.SelectedObj = transform.parent.gameObject;//If you aren't selected then make selected
+                    AirshipWorldScript.SelectedCenter = parentScript.centerScript;
                 }
             }
             if(Input.GetMouseButtonDown(2)){//If you midle click...
@@ -81,14 +84,16 @@ public class BlockSideScript : MonoBehaviour
         }
         }else{//If mouse not over...
             if(WorldSpawner.Building){//...And you are Building...
-                mr.material.color = new Color(1,1,1,0.025f);//Set color to compleatly clear
-            }else{
-                mr.material.color = new Color(1,1,1,0);//Set color to slighly clear
-
+                mr.material.color = new Color(1,1,1,0.025f);//Set color to slighly clear
 
                 if(AirshipWorldScript.SelectedObj == transform.parent.gameObject){
                     mr.material.color = PigMoveScript.BlueColor;//If selected, then blue
                 }
+            }else{
+                mr.material.color = new Color(1,1,1,0);//Set color to compleatly clear
+
+
+                
             }
             
         }

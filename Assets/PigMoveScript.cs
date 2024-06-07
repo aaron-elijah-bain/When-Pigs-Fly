@@ -21,7 +21,9 @@ public class PigMoveScript : MonoBehaviour
 
     public float jumpPower = 1f;
 
+    
     public bool grounded = false;
+    public bool groundedOnShip = false;
 
    
 
@@ -63,49 +65,64 @@ public class PigMoveScript : MonoBehaviour
             cam.position = new Vector3(transform.position.x,transform.position.y+0.6f,transform.position.z);
             transform.rotation = Quaternion.Euler(0,yRot,0);
 
-        
-            float Horizontal = Input.GetAxisRaw("Horizontal");
-            float Vertical = Input.GetAxisRaw("Vertical");
+            if(!isDriving){
+                float Horizontal = Input.GetAxisRaw("Horizontal");
+                float Vertical = Input.GetAxisRaw("Vertical");
 
-            Vector3 dir = Vector3.zero;
+                Vector3 dir = Vector3.zero;
 
-            dir = transform.forward*Vertical + transform.right * Horizontal;
+                dir = transform.forward*Vertical + transform.right * Horizontal;
 
-            dir = dir.normalized;
+                dir = dir.normalized;
 
-            controller.Move(dir*moveSpeed);
+                controller.Move(dir*moveSpeed);
 
-            if(!grounded){
-            velocity -=gravity;
+                if(!grounded){
+                velocity -=gravity;
+                }
+
+                bool Jump = Input.GetKey("space");
+                
+                if(grounded && Jump){
+                    velocity = jumpPower;
+                }
+
+                if(groundedOnShip && AWS.Crystal != null){
+                    transform.SetParent(AWS.Crystal.transform,true);
+
+                }else{
+                    transform.SetParent(null, true);
+                }
+
+                
+                grounded = false;
+                groundedOnShip = false;
+                
+                controller.Move(Vector3.up*velocity);
             }
-
-            bool Jump = Input.GetKey("space");
-            
-            if(grounded && Jump){
-                velocity = jumpPower;
+            if(isDriving && AWS.Crystal != null){
+                    transform.SetParent(AWS.Crystal.transform,true);
             }
-            grounded = false;
-            
-            controller.Move(Vector3.up*velocity);
-            
             if(Input.GetKeyDown(KeyCode.E)){
                 if(!isDriving){
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if(Physics.Raycast(ray, out hit, Mathf.Infinity,~LayerMask.NameToLayer("Player"))){
-                    if(hit.transform.parent != null){
-                        GameObject CenterHolder = hit.transform.parent.Find("CenterHolder").gameObject;
+                    if(hit.collider != null){
+                        
+                        AirshipBlockScript ABS = hit.collider.gameObject.GetComponent<AirshipBlockScript>();
                     
-                        if(CenterHolder != null){
-                        CenterScript[] centerScripts = CenterHolder.GetComponentsInChildren<CenterScript>();
-                            for(var i = 0; i < centerScripts.Length; i++){
-                                if(centerScripts[i].Type == "Wheel"){
+                        if(ABS != null){
+                                if(ABS.centerScript.Type == "Wheel"){
                                     
                                     
                                     isDriving = true;
+                                    AWS.Crystal = ABS.transform.parent.gameObject;
+
+                                    
                                     
                                 }
-                            }
+                            
                         }
                     }
                 }
@@ -123,6 +140,9 @@ public class PigMoveScript : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         if(other.gameObject.layer != 3){
             grounded = true;
+        }
+        if(other.gameObject.layer == LayerMask.NameToLayer("Blocks")){
+            groundedOnShip = true;
         }
         
         
