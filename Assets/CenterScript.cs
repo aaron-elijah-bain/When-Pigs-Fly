@@ -11,17 +11,22 @@ public class CenterScript : MonoBehaviour
 
     public float Mass = 0f;
 
-    private PigMoveScript playerScript;
+    public PigMoveScript playerScript;
 
     public Rigidbody Crystalrb;
+    private AirshipBlockScript CrystScript;
+    
 
-    private GameObject Rotor;
+    private MeshRenderer MyRenderer;
+    private List<GameObject> MyParts = new List<GameObject>();
 
     private float RotorRot = 0f;
 
     public float RotorSpeed = 5f;
 
-    public float Power = 1f;
+    public float Speed = 1f;
+
+    public float PowerUsage = 0;
 
     public float InputMultiplier = 0;
 
@@ -30,38 +35,75 @@ public class CenterScript : MonoBehaviour
 
     public bool isAutomatic = false;
 
-    private AirshipWorldScript AWS;
+    public AirshipWorldScript AWS;
+
+    
+
+
+    public bool[] UINeeds = new bool[3];
 
 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         Type = gameObject.name;
         Type = Type.Replace("(Clone)","");
         playerScript = GameObject.FindWithTag("Player").GetComponent<PigMoveScript>();
-        if(Type[0].ToString() == "b"){
-            AWS.BalloonCount ++;
-        }
+        
+        MyRenderer = GetComponent<MeshRenderer>();
+
+        
+        
         if(transform.parent.parent.tag == "Crystal"){
             Crystalrb = transform.parent.parent.GetComponent<Rigidbody>();
-        }else{
+
+            
+        }else if(transform.parent.parent.parent != null){
             Crystalrb = transform.parent.parent.parent.GetComponent<Rigidbody>();
+
+            
         }
+        CrystScript = Crystalrb.gameObject.GetComponent<AirshipBlockScript>();
+        
+
+        
+        if(transform.parent.parent.tag != "Crystal"){
+            CrystScript.myCrystal.TotalPowerUsage += PowerUsage;
+        }
+
         
         MeshRenderer[] MRS = GetComponentsInChildren<MeshRenderer>();
-        foreach(MeshRenderer mr in MRS){
-            if(mr.gameObject != gameObject){
-                Rotor = mr.gameObject;
+        for(int i = 0; i< MRS.Length; i++){
+            if(MRS[i].gameObject != gameObject && MRS[i].transform.parent == transform){
+                
+                MyParts.Add(MRS[i].gameObject);
+                
             }
+        }
+        
+
+        
+    }
+    void Start(){
+        if(Type[0].ToString() == "b"){
+            CrystScript.myCrystal.BalloonCount ++;
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject){
+    {   
+        
+        
+        MyRenderer.material.SetVector("_CrystPos", transform.parent.parent.localEulerAngles + transform.localEulerAngles);
+        MyRenderer.material.SetFloat("_Mirror", transform.parent.localScale.x);
+
+
+        
+
+        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false){
             if(Type == "Wheel"){
                 
 
@@ -82,18 +124,19 @@ public class CenterScript : MonoBehaviour
                     }
                 }
 
-                Rotor.transform.rotation = Quaternion.AngleAxis(RotorRot,transform.forward)*transform.rotation;
+                MyParts[0].transform.rotation = Quaternion.AngleAxis(RotorRot,transform.forward)*transform.rotation;
                 
             
 
                 playerScript.transform.position = transform.position + transform.forward * 1.3f;
+
             
             }
 
-            if(Type == "Prop"){
+            if(Type == "Prop" || Type == "Prop1"){
                 
                 RotorRot+=RotorSpeed*InputMultiplier;
-                Rotor.transform.rotation = Quaternion.AngleAxis(RotorRot,transform.forward)*transform.rotation;
+                MyParts[0].transform.rotation = Quaternion.AngleAxis(RotorRot,transform.forward)*transform.rotation;
                 if(Input.GetKey(posInput)){
                     InputMultiplier = 1;
                 }else if(Input.GetKey(negInput)){
@@ -101,45 +144,90 @@ public class CenterScript : MonoBehaviour
                 }else{
                     InputMultiplier = 0;
                 }
+
+                
                 
             }
-
             if(Type[0].ToString() == "b"){
-            if(InputMultiplier > -1 && Input.GetKey(negInput)){
-                InputMultiplier -=0.05f;
-            }else if(InputMultiplier < 1 && Input.GetKey(posInput)){
-                InputMultiplier +=0.05f;
-            }else{
-                InputMultiplier = 0;
+                if(InputMultiplier > -1 && Input.GetKey(negInput)){
+                    InputMultiplier -=0.05f;
+                }else if(InputMultiplier < 1 && Input.GetKey(posInput)){
+                    InputMultiplier +=0.05f;
+                }else{
+                    InputMultiplier = 0;
+                }
             }
-        }
+        
+            
+                
+                
         }
 
+        if(Type == "Prop" || Type == "Prop1"){
+                RaycastHit[] hits;
+                hits = Physics.RaycastAll(transform.position, -transform.forward, 2, LayerMask.GetMask("Blocks"));
+                
+                if(MyParts.Count > 1 ){
+                    if(hits.Length != 0){
+                        foreach(RaycastHit hit in hits){
+                            if(hit.transform.gameObject != gameObject){
+                                MyParts[1].SetActive(true);
+                                Vector3 PropPos = transform.position-transform.forward;
+                                Vector3 AimPos = hit.point + (Crystalrb.transform.position-PropPos).normalized*2;
+                                
+                                MyParts[1].transform.localScale = new Vector3(0.2f,(AimPos-PropPos).magnitude/2,0.2f);
+                                
+                                MyParts[1].transform.position = ((PropPos + AimPos)/2);
+
+                                MyParts[1].transform.rotation = Quaternion.FromToRotation(transform.up,AimPos-PropPos);
+                                
+
+                            }
+                        }
+                    }else{
+                        MyParts[1].SetActive(false);
+                    }
+            }
+
+            
+        }
+        
+
+
+        
         
         
     }
     private void FixedUpdate() {
         
-        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject){
-            if(Type == "Prop"){
-                Crystalrb.AddForceAtPosition(transform.forward*Power*InputMultiplier,transform.position,ForceMode.Force);
+        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false && CrystScript.myCrystal.TotalPowerUsage < CrystScript.myCrystal.MaxPower){
+            if(Type == "Prop" || Type == "Prop1"){
+                Crystalrb.AddForceAtPosition(transform.forward*Speed*InputMultiplier,transform.position,ForceMode.Force);
             }
             
             if(Type[0].ToString() == "b"){
                 
                 
+                float MyForce = ((Crystalrb.mass * -Physics.gravity.y)/CrystScript.myCrystal.BalloonCount)+(InputMultiplier*Speed);
                 
-                Crystalrb.AddForceAtPosition(Vector3.up*(((Crystalrb.mass * -Physics.gravity.y)/AWS.BalloonCount)+(InputMultiplier*Power)),transform.position,ForceMode.Force);
+                MyForce = Mathf.Clamp(MyForce,0,500);
+                Crystalrb.AddForceAtPosition(Vector3.up*MyForce,transform.position,ForceMode.Force);
                 
 
             }
             
         }
+        
     }
 
     private void OnDestroy() {
         if(Type[0].ToString() == "b"){
-            AWS.BalloonCount--;
+            CrystScript.myCrystal.BalloonCount--;
         }
+        if(Type == "Wheel" && AWS.Crystal == Crystalrb.gameObject){
+                playerScript.isDriving = false;
+        }
+
+        CrystScript.myCrystal.TotalPowerUsage -= PowerUsage;
     }
 }

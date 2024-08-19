@@ -6,6 +6,7 @@ public class PigMoveScript : MonoBehaviour
 {
     
     public Transform cam;
+    private Transform myCamera;
 
     float xRot = 0f;
     float yRot = 0f;
@@ -42,7 +43,7 @@ public class PigMoveScript : MonoBehaviour
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         BlueColor= InspecColor;
         Cursor.lockState = CursorLockMode.Locked;
-
+        myCamera = cam.gameObject.GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
        
        
@@ -51,9 +52,11 @@ public class PigMoveScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        
 
         if(!AWS.Building){
+            
             float MouseX = Input.GetAxisRaw("Mouse X") * sensX;
             float MouseY = Input.GetAxisRaw("Mouse Y") * sensY;
 
@@ -65,43 +68,22 @@ public class PigMoveScript : MonoBehaviour
             cam.position = new Vector3(transform.position.x,transform.position.y+0.6f,transform.position.z);
             transform.rotation = Quaternion.Euler(0,yRot,0);
 
-            if(!isDriving){
-                float Horizontal = Input.GetAxisRaw("Horizontal");
-                float Vertical = Input.GetAxisRaw("Vertical");
 
-                Vector3 dir = Vector3.zero;
-
-                dir = transform.forward*Vertical + transform.right * Horizontal;
-
-                dir = dir.normalized;
-
-                controller.Move(dir*moveSpeed);
-
-                if(!grounded){
-                velocity -=gravity;
-                }
-
-                bool Jump = Input.GetKey("space");
+            if(Input.GetKeyDown(KeyCode.Tab)){
                 
-                if(grounded && Jump){
-                    velocity = jumpPower;
-                }
+                        if(myCamera.localPosition == new Vector3(0,0,-10)){
+                           
+                            myCamera.localPosition = new Vector3(0,0,0);
 
-                if(groundedOnShip && AWS.Crystal != null){
-                    transform.SetParent(AWS.Crystal.transform,true);
-
-                }else{
-                    transform.SetParent(null, true);
-                }
-
-                
-                grounded = false;
-                groundedOnShip = false;
-                
-                controller.Move(Vector3.up*velocity);
+                        }else if(myCamera.localPosition == new Vector3(0,0,0)){
+                            myCamera.localPosition = new Vector3(0,0,-10);
+                        }
             }
+
             if(isDriving && AWS.Crystal != null){
                     transform.SetParent(AWS.Crystal.transform,true);
+
+                    
             }
             if(Input.GetKeyDown(KeyCode.E)){
                 if(!isDriving){
@@ -135,6 +117,49 @@ public class PigMoveScript : MonoBehaviour
             }        
 
 
+    }
+    void FixedUpdate(){
+        
+            if(!isDriving){
+                
+                float Horizontal = Input.GetAxisRaw("Horizontal");
+                float Vertical = Input.GetAxisRaw("Vertical");
+
+                Vector3 dir = Vector3.zero;
+
+                dir = transform.forward*Vertical + transform.right * Horizontal;
+
+                dir = dir.normalized;
+
+                controller.Move(dir*moveSpeed);
+
+                if(!grounded){
+                velocity -=gravity;
+                }
+
+                bool Jump = Input.GetKey("space");
+                
+                if(grounded && Jump){
+                    velocity = jumpPower;
+                }
+
+
+                if(groundedOnShip && AWS.Crystal != null){
+                    transform.SetParent(AWS.Crystal.transform,true);
+
+                }else{
+                    transform.SetParent(null, true);
+                }
+                groundedOnShip = false;
+                grounded = false;
+
+                
+                
+                
+                controller.Move(Vector3.up*velocity);
+                
+                   
+            }
     }
     
     private void OnTriggerStay(Collider other) {

@@ -5,7 +5,9 @@ using UnityEngine;
 public class AirshipBlockScript : MonoBehaviour
 {
     //This script is the base for all blocks
-    private Rigidbody rb;
+
+    public int Index;
+    public Rigidbody rb;
 
     public List<GameObject> neighbors;
     public List<AirshipBlockScript> neighborScripts;
@@ -14,8 +16,8 @@ public class AirshipBlockScript : MonoBehaviour
 
     public bool connected = true;
 
-    private AirshipBlockScript crystal;
-
+    public AirshipBlockScript crystal;
+    public AirshipCrystalScript myCrystal; //For crystal only. If children need a reference, reference this variable of the above variable. 
     
     private AirshipWorldScript AWS;
 
@@ -27,34 +29,63 @@ public class AirshipBlockScript : MonoBehaviour
     private bool firstFrame = true;
 
     public bool OldBuild = true;
+
+    
+
+    public bool[] myDecks = new bool[6];
+
+    
+
+    public float BlockHeath = 100;
+
+    public int gunIndex = 0;
+    public GameObject Gun;
+
+    
+
+
     
 
     // Start is called before the first frame update
     void Start()
     {   
-
-  
+        
+        
 
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         neighbors = new List<GameObject>();
         neighborScripts = new List<AirshipBlockScript>();
+
+        
+        Sides = GetComponentsInChildren<BlockSideScript>();
         if(gameObject.tag == "Crystal"){
             rb = GetComponent<Rigidbody>();
             rb.isKinematic = false;
+            rb.automaticCenterOfMass = false;
+            rb.maxAngularVelocity = 1;
 
-            rb.inertiaTensor = new Vector3(10,10,10);
+            rb.inertiaTensor = new Vector3(100,10,100);
             crystal = this;
+
+            myCrystal = GetComponent<AirshipCrystalScript>();
+            myCrystal.SpawnShip();
+
+
+            
         }else{
-            crystal = transform.parent.gameObject.GetComponent<AirshipBlockScript>();
+            transform.SetParent(crystal.transform);
+            
         }
         centerScript = center.GetComponentInChildren<CenterScript>();
-
+        
+        SpawnGun(gunIndex);
+        
         
 
         LayerMask mask = LayerMask.GetMask("OldBlock");
         Ground = LayerMask.GetMask("Ground");
 
-        Sides = GetComponentsInChildren<BlockSideScript>();
+        
 
         
 
@@ -163,29 +194,54 @@ public class AirshipBlockScript : MonoBehaviour
             if(Sides[i].gameObject.name == "Front"){
                 BSS.DeckIndex = centerScript.Sides[0];
                 BSS.DeckRot = centerScript.Rots[0];
+                BSS.MyIndex = 0;
+                if(myDecks[0]){
+                    BSS.SpawnDeck();
+                }
             }
             if(Sides[i].gameObject.name == "Back"){
                 BSS.DeckIndex = centerScript.Sides[1];
                 BSS.DeckRot = centerScript.Rots[1];
+                BSS.MyIndex = 1;
+                if(myDecks[1]){
+                    BSS.SpawnDeck();
+                }
             }
             if(Sides[i].gameObject.name == "Right"){
                 BSS.DeckIndex = centerScript.Sides[2];
                 BSS.DeckRot = centerScript.Rots[2];
+                BSS.MyIndex = 2;
+                if(myDecks[2]){
+                    BSS.SpawnDeck();
+                }
             }
              if(Sides[i].gameObject.name == "Left"){
                 BSS.DeckIndex = centerScript.Sides[3];
                 BSS.DeckRot = centerScript.Rots[3];
+                BSS.MyIndex = 3;
+                if(myDecks[3]){
+                    BSS.SpawnDeck();
+                }
             }
             if(Sides[i].gameObject.name == "Top"){
                 BSS.DeckIndex = centerScript.Sides[4];
                 BSS.DeckRot = centerScript.Rots[4];
+                BSS.MyIndex = 4;
+                if(myDecks[4]){
+                    BSS.SpawnDeck();
+                }
             }
              if(Sides[i].gameObject.name == "Bottom"){
                 BSS.DeckIndex = centerScript.Sides[5];
                 BSS.DeckRot = centerScript.Rots[5];
+                BSS.MyIndex = 5;
+                if(myDecks[5]){
+                    BSS.SpawnDeck();
+                }
             }
         }
 
+        
 
         
 
@@ -203,7 +259,7 @@ public class AirshipBlockScript : MonoBehaviour
         }
 
 
-        transform.position = new Vector3(Mathf.Round(transform.position.x),Mathf.Round(transform.position.y),Mathf.Round(transform.position.z));
+        transform.localPosition = new Vector3(Mathf.Round(transform.localPosition.x),Mathf.Round(transform.localPosition.y),Mathf.Round(transform.localPosition.z));
 
         transform.rotation = Quaternion.Euler(Mathf.Round(transform.rotation.eulerAngles.x/90)*90,Mathf.Round(transform.rotation.eulerAngles.y/90)*90,Mathf.Round(transform.rotation.eulerAngles.z/90)*90);
 
@@ -213,6 +269,16 @@ public class AirshipBlockScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if(BlockHeath <= 0){
+            if(BlockHeath < 0){
+                foreach(AirshipBlockScript Neighbor in neighborScripts){
+                    Neighbor.BlockHeath -= (-BlockHeath)/neighborScripts.Count;
+                }
+            }
+            Destroy(gameObject);
+        }
+
         if(OldBuild != AWS.Building && AWS.Building == true){
             foreach(BlockSideScript Side in Sides){
                 Side.gameObject.SetActive(true);
@@ -222,55 +288,47 @@ public class AirshipBlockScript : MonoBehaviour
                 Side.gameObject.SetActive(false);
             }
         }
+
         
         
-
-       if(gameObject.tag == "Crystal"){
-            
-            if(AWS.Building){
-                transform.rotation = Quaternion.Euler(0,0,0);
-                
-                rb.isKinematic = true;
-                
-            }else{
-                rb.isKinematic = false;
-            }
-
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity,10);
-        }
         
-        if(AirshipWorldScript.SelectedObj == gameObject && gameObject.tag != "Crystal"){
-            if(Input.GetKey(KeyCode.Backspace)){
-                Destroy(gameObject);
-            }
 
-            if(Input.GetKeyDown(KeyCode.X)){
-                transform.Rotate(90f,0f,0f,Space.World);
-            }
-            if(Input.GetKeyDown(KeyCode.Y)){
-                transform.Rotate(0f,90f,0f,Space.World);            
-            }
-            if(Input.GetKeyDown(KeyCode.Z)){
-                transform.Rotate(0f,0f,90f,Space.World);            
-            }
-            
 
-            if(Input.GetKeyDown(KeyCode.M)){
-                
-                
-                center.transform.localScale = new Vector3(-center.transform.localScale.x,1,1);
-                
-                
-            }
+       
 
-            AWS.Mirror = center.transform.localScale.x;
+        foreach(GameObject Obj in AirshipWorldScript.SelectedObj){
+            if(Obj == gameObject && gameObject.tag != "Crystal" && AWS.MouseOverUI == false){
+                if(Input.GetKey(KeyCode.Backspace)){
+                    Destroy(gameObject);
+                }
+
+                if(Input.GetKeyDown(KeyCode.X)){
+                    transform.Rotate(90f,0f,0f,Space.World);
+                }
+                if(Input.GetKeyDown(KeyCode.Y)){
+                    transform.Rotate(0f,90f,0f,Space.World);            
+                }
+                if(Input.GetKeyDown(KeyCode.Z)){
+                    transform.Rotate(0f,0f,90f,Space.World);            
+                }
+                
+
+                if(Input.GetKeyDown(KeyCode.M)){
+                    
+                    
+                    center.transform.localScale = new Vector3(-center.transform.localScale.x,1,1);
+                    
+                    
+                }
+
+                AWS.Mirror = center.transform.localScale.x;
 
 
 
 
 
         }
-
+        }
 
         Vector3 SideOffset = Vector3.zero;
         Vector3 dir = Vector3.zero;
@@ -320,7 +378,7 @@ public class AirshipBlockScript : MonoBehaviour
                     SideOffset = perp1*0.9f + perp2*-0.9f;
                 }
 
-                Debug.DrawRay(transform.position+SideOffset,dir,Color.red, 1.2f);
+                //Debug.DrawRay(transform.position+SideOffset,dir,Color.red, 1.2f);
             }
            
 
@@ -339,6 +397,30 @@ public class AirshipBlockScript : MonoBehaviour
        
     }
 
+    public void SpawnGun(int Index){
+        if(Gun != null && Index == 0 && gunIndex != 0){
+
+            Destroy(Gun);
+            gunIndex = 0;
+
+        }else if(Gun == null && Index != 0){
+            GameObject myGun = Instantiate(AWS.Guns[Index-1], transform.position, transform.localRotation, centerScript.transform);
+            myGun.SetActive(true);
+            //myGun.transform.rotation = Quaternion.AngleAxis(90, transform.forward);
+            Gun = myGun;
+            gunIndex = Index;
+        }else if(Gun != null && Index != gunIndex && Index != 0){
+            Destroy(Gun);
+            GameObject myGun = Instantiate(AWS.Guns[Index-1], transform.position, transform.localRotation, centerScript.transform);
+            myGun.SetActive(true);
+            //myGun.transform.rotation = Quaternion.AngleAxis(90, transform.forward);
+            Gun = myGun;
+            gunIndex = Index;
+        }
+
+        
+    }
+
     public void MakeConnected(){
         connected = true;
         for(var i = 0; i< neighborScripts.Count; i++){
@@ -347,7 +429,7 @@ public class AirshipBlockScript : MonoBehaviour
             }
         }
     }
-     
+    
     private void OnDestroy() {
         for(int i = 0; i<neighborScripts.Count; i++){
             int index = neighborScripts[i].neighbors.IndexOf(gameObject);
@@ -366,14 +448,18 @@ public class AirshipBlockScript : MonoBehaviour
         }
         crystal.MakeConnected();
 
-        Rigidbody CrystRB = crystal.GetComponent<Rigidbody>();
+        Rigidbody CrystRb = crystal.GetComponent<Rigidbody>();
         
         foreach(AirshipBlockScript child in crystalChildren){
             if(!child.connected){
                 
-                Vector3 newCOM = ((CrystRB.centerOfMass * CrystRB.mass) - ((child.transform.position-crystal.transform.position) * child.centerScript.Mass))/(CrystRB.mass-child.centerScript.Mass);
-                CrystRB.centerOfMass = newCOM;
-                CrystRB.mass -= child.centerScript.Mass;
+                crystal.myCrystal.ActualCOM = AWS.RecalcCOM(child.transform.position, child.centerScript.Mass,-1, crystal);
+        
+                
+
+                CrystRb.centerOfMass = new Vector3(Mathf.Round(crystal.myCrystal.ActualCOM.x),Mathf.Round(crystal.myCrystal.ActualCOM.y),Mathf.Round(crystal.myCrystal.ActualCOM.z));
+                
+                
                
                 child.rb = child.gameObject.AddComponent<Rigidbody>();
                 child.rb.mass = 1; //Change if more mass is needed, make this a variable
@@ -408,11 +494,26 @@ public class AirshipBlockScript : MonoBehaviour
             }
         }
         if(transform.parent != null){
+
+                
+                crystal.myCrystal.ActualCOM = AWS.RecalcCOM(transform.position, centerScript.Mass,-1,crystal);
         
-        Vector3 newCOM = ((CrystRB.centerOfMass * CrystRB.mass) - ((transform.position-crystal.transform.position) * centerScript.Mass))/(CrystRB.mass-centerScript.Mass);
-        CrystRB.centerOfMass = newCOM;
-        CrystRB.mass -= centerScript.Mass;
+                
+
+                CrystRb.centerOfMass = new Vector3(Mathf.Round(crystal.myCrystal.ActualCOM.x),Mathf.Round(crystal.myCrystal.ActualCOM.y),Mathf.Round(crystal.myCrystal.ActualCOM.z));
+                
+                foreach(GameObject myObj in AirshipWorldScript.SelectedObj){
+                    if(myObj == gameObject){//If you are selected...
+                        AirshipWorldScript.SelectedObj.Remove(gameObject);//Make not selected
+                        AirshipWorldScript.SelectedCenter.Remove(centerScript);
+                        return;
+                    
+                    }
+                }
+
         }
+
+
         
 
     }
