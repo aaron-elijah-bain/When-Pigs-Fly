@@ -120,7 +120,7 @@ public class PigMoveScript : MonoBehaviour
     }
     void FixedUpdate(){
         
-            if(!isDriving){
+            if(!isDriving && !AWS.Building){
                 
                 float Horizontal = Input.GetAxisRaw("Horizontal");
                 float Vertical = Input.GetAxisRaw("Vertical");

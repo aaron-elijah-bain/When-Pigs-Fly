@@ -51,7 +51,7 @@ public class AirshipCrystalScript : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0,0,0);
                 
                 MyBlock.rb.isKinematic = true;
-                transform.position = new Vector3(Mathf.Round(transform.position.x),2,Mathf.Round(transform.position.z));
+                transform.position = new Vector3(Mathf.Round(transform.position.x),AWS.BuildHeight,Mathf.Round(transform.position.z));
                 
             }else{
                 MyBlock.rb.isKinematic = false;

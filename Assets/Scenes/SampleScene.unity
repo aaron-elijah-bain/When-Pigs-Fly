@@ -10454,6 +10454,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223467417}
   m_Mesh: {fileID: 2352272465676470988, guid: e81c4c6e23040af4cb544eb2ac08dc43, type: 3}
+--- !u!1001 &249793097
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_Name
+      value: AirshipWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4292ad4d40406dd4da14a8c3ec516732,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!1 &294291039
 GameObject:
   m_ObjectHideFlags: 0
@@ -21396,7 +21469,7 @@ Transform:
   m_GameObject: {fileID: 450223475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 10, z: 0}
+  m_LocalPosition: {x: 20, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21687,7 +21760,7 @@ Transform:
   m_GameObject: {fileID: 490960806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 10, z: 0}
+  m_LocalPosition: {x: 10, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21712,7 +21785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91ce7fc5af6c9d488021c136d5bd036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaveString: '{"CrystDecks":[false,false,false,false,false,false],"shipParts":[{"Type":27,"Pos":{"x":-2.0,"y":0.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":28,"Pos":{"x":-2.0,"y":2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":27,"Pos":{"x":-1.0,"y":-2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":1.0,"y":-2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":2.0,"y":0.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":28,"Pos":{"x":2.0,"y":2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":5,"Pos":{"x":-1.0,"y":-2.0,"z":-2.0},"Rot":{"x":-0.5,"y":-0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":5,"Pos":{"x":1.0,"y":-2.0,"z":-2.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":-1.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":1.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-1.0,"y":0.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":1.0,"y":0.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-1.0,"y":2.0,"z":-4.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":1.0,"y":2.0,"z":-4.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":5,"Pos":{"x":1.0,"y":-2.0,"z":2.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":5,"Pos":{"x":-1.0,"y":-2.0,"z":2.0},"Rot":{"x":-0.5,"y":-0.5,"z":-0.5,"w":0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":-1.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":1.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":1.0,"y":0.0,"z":4.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-1.0,"y":0.0,"z":4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":1.0,"y":2.0,"z":4.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-1.0,"y":2.0,"z":4.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":2.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":2.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":22,"Pos":{"x":0.0,"y":4.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":100,"NegInput":97,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":0.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":0.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":8.0,"z":0.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":8.0,"z":0.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":8.0,"z":2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":8.0,"z":2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":-2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":-2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":8.0,"z":-2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":8.0,"z":-2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":-1.0,"y":6.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":1.0,"y":6.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":1.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":1.0,"y":8.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":-1.0,"y":8.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":1.0,"y":6.0,"z":4.0},"Rot":{"x":-0.5,"y":0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":1.0,"y":8.0,"z":4.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":-1.0,"y":8.0,"z":4.0},"Rot":{"x":-0.5,"y":-0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":-1.0,"y":6.0,"z":4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":4.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":4.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":23,"Pos":{"x":3.0,"y":7.0,"z":0.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":100,"NegInput":97,"Speed":1.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":23,"Pos":{"x":-3.0,"y":7.0,"z":0.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":97,"NegInput":100,"Speed":1.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":29,"Pos":{"x":0.0,"y":2.0,"z":6.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":115,"NegInput":119,"Speed":2000.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":27,"Pos":{"x":-2.0,"y":2.0,"z":-2.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":-2.0,"y":2.0,"z":2.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":2.0,"y":2.0,"z":-2.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":2.0,"y":2.0,"z":2.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1}]}'
+  SaveString: '{"CrystDecks":[false,false,false,false,true,false],"shipParts":[{"Type":22,"Pos":{"x":0.0,"y":2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":100,"NegInput":97,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":28,"Pos":{"x":0.0,"y":-2.0,"z":0.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":28,"Pos":{"x":0.0,"y":-2.0,"z":-2.0},"Rot":{"x":-0.5,"y":0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":21,"Pos":{"x":-1.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":1.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":1.0,"y":0.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":-1.0,"y":0.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":28,"Pos":{"x":0.0,"y":-2.0,"z":2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":28,"Pos":{"x":0.0,"y":-2.0,"z":4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":27,"Pos":{"x":-3.0,"y":0.0,"z":-4.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":3.0,"y":0.0,"z":-4.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":28,"Pos":{"x":3.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[true,false,false,false,true,false],"GunIndex":1},{"Type":28,"Pos":{"x":2.0,"y":0.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":28,"Pos":{"x":3.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,true,false],"GunIndex":1},{"Type":21,"Pos":{"x":1.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":-1.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":1.0,"y":0.0,"z":4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":21,"Pos":{"x":-1.0,"y":0.0,"z":4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":27,"Pos":{"x":3.0,"y":-2.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":3.0,"y":-2.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":0,"Pos":{"x":2.0,"y":-4.0,"z":-2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":2.0,"y":-4.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":2.0,"y":-4.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":27,"Pos":{"x":3.0,"y":-2.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":8,"Pos":{"x":2.0,"y":-2.0,"z":4.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":27,"Pos":{"x":3.0,"y":0.0,"z":4.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":0.0,"y":-2.0,"z":6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":4,"Pos":{"x":2.0,"y":-2.0,"z":6.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-2.0,"y":-2.0,"z":6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":2.0,"y":0.0,"z":6.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-2.0,"y":0.0,"z":6.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":15,"Pos":{"x":0.0,"y":0.0,"z":6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":0},{"Type":4,"Pos":{"x":2.0,"y":-4.0,"z":4.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":-0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":1,"Pos":{"x":0.0,"y":-4.0,"z":4.0},"Rot":{"x":0.5,"y":-0.5,"z":0.5,"w":-0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-2.0,"y":-4.0,"z":4.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":-2.0,"y":-2.0,"z":4.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":27,"Pos":{"x":-3.0,"y":0.0,"z":4.0},"Rot":{"x":-3.090862321641907e-8,"y":0.7071068286895752,"z":-0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":1},{"Type":28,"Pos":{"x":-3.0,"y":0.0,"z":2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[true,false,false,false,true,false],"GunIndex":1},{"Type":28,"Pos":{"x":-3.0,"y":0.0,"z":-2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,true,false],"GunIndex":1},{"Type":28,"Pos":{"x":-2.0,"y":0.0,"z":0.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":27,"Pos":{"x":-3.0,"y":-2.0,"z":0.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":1},{"Type":27,"Pos":{"x":-3.0,"y":-2.0,"z":-2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":27,"Pos":{"x":-3.0,"y":-2.0,"z":2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":113,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":1},{"Type":15,"Pos":{"x":0.0,"y":-4.0,"z":-2.0},"Rot":{"x":0.5,"y":-0.5,"z":0.5,"w":-0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":15,"Pos":{"x":0.0,"y":-4.0,"z":0.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":-0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":15,"Pos":{"x":0.0,"y":-4.0,"z":2.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":-0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-2.0,"y":-4.0,"z":-2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-2.0,"y":-4.0,"z":0.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-2.0,"y":-4.0,"z":2.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":-2.0,"y":-2.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":8,"Pos":{"x":2.0,"y":-2.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":2.0,"y":-4.0,"z":-4.0},"Rot":{"x":-3.090862321641907e-8,"y":-0.7071068286895752,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-2.0,"y":-4.0,"z":-4.0},"Rot":{"x":-3.090862321641907e-8,"y":-0.7071068286895752,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":1,"Pos":{"x":0.0,"y":-4.0,"z":-4.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":-2.0,"y":-2.0,"z":-6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":4,"Pos":{"x":2.0,"y":-2.0,"z":-6.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":28,"Pos":{"x":0.0,"y":-2.0,"z":-4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":2},{"Type":27,"Pos":{"x":0.0,"y":-2.0,"z":-6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":-2.0,"y":0.0,"z":-6.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":0,"Pos":{"x":2.0,"y":0.0,"z":-6.0},"Rot":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,true,false,false,false,false],"GunIndex":0},{"Type":28,"Pos":{"x":0.0,"y":0.0,"z":-6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":-1.0,"PosInput":120,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,true,false],"GunIndex":2},{"Type":21,"Pos":{"x":0.0,"y":2.0,"z":4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":0.0,"y":2.0,"z":-4.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":4.0,"z":0.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":4.0,"z":0.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":0.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":0.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":-2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":-2.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":4.0,"z":-2.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":4.0,"z":-2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":4.0,"z":-4.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":4.0,"z":-4.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":-4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":-4.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":2.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":2.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":4.0,"z":2.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":4.0,"z":2.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":4.0,"z":4.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":-0.7071068286895752,"w":3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":1.0,"y":6.0,"z":4.0},"Rot":{"x":0.5,"y":0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":6.0,"z":4.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":25,"Pos":{"x":-1.0,"y":4.0,"z":4.0},"Rot":{"x":0.5,"y":-0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":-1.0,"y":4.0,"z":6.0},"Rot":{"x":0.0,"y":0.7071068286895752,"z":0.0,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":1.0,"y":4.0,"z":6.0},"Rot":{"x":-0.5,"y":0.5,"z":-0.5,"w":-0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":1.0,"y":6.0,"z":6.0},"Rot":{"x":0.7071068286895752,"y":-3.090862321641907e-8,"z":0.7071068286895752,"w":-3.090862321641907e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":26,"Pos":{"x":-1.0,"y":6.0,"z":6.0},"Rot":{"x":-0.5,"y":-0.5,"z":-0.5,"w":0.5},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":-1.0,"y":4.0,"z":-6.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":1.0,"y":4.0,"z":-6.0},"Rot":{"x":0.0,"y":0.0,"z":1.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":-1.0,"y":6.0,"z":-6.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":24,"Pos":{"x":1.0,"y":6.0,"z":-6.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":-0.7071068286895752},"MyMirror":1.0,"PosInput":32,"NegInput":304,"Speed":200.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":3.0,"y":5.0,"z":1.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":5.0,"y":5.0,"z":1.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":29,"Pos":{"x":5.0,"y":5.0,"z":-1.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":100,"NegInput":97,"Speed":1.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":-3.0,"y":5.0,"z":1.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":21,"Pos":{"x":-5.0,"y":5.0,"z":1.0},"Rot":{"x":0.0,"y":0.0,"z":0.7071068286895752,"w":0.7071068286895752},"MyMirror":1.0,"PosInput":0,"NegInput":0,"Speed":0.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":29,"Pos":{"x":-5.0,"y":5.0,"z":-1.0},"Rot":{"x":0.0,"y":1.0,"z":0.0,"w":-4.371138828673793e-8},"MyMirror":1.0,"PosInput":97,"NegInput":100,"Speed":1.0,"Decks":[false,false,false,false,false,false],"GunIndex":0},{"Type":29,"Pos":{"x":0.0,"y":-1.0,"z":8.0},"Rot":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"MyMirror":1.0,"PosInput":115,"NegInput":119,"Speed":2000.0,"Decks":[false,false,false,false,false,false],"GunIndex":0}]}'
   BalloonCount: 0
   MaxPower: 100
   TotalPowerUsage: 0
@@ -27593,8 +27666,8 @@ MonoBehaviour:
   sensX: 4
   sensY: 4
   moveSpeed: 0.3
-  gravity: 0.06
-  jumpPower: 0.4
+  gravity: 0.03
+  jumpPower: 0.2
   grounded: 0
   groundedOnShip: 0
   InspecColor: {r: 0.5157232, g: 0.7759032, b: 1, a: 0.43137255}
@@ -27661,9 +27734,9 @@ Transform:
   m_GameObject: {fileID: 857101802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 5, y: 20, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -34065,6 +34138,162 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345159012}
   m_CullTransparentMesh: 1
+--- !u!1 &1406966106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406966111}
+  - component: {fileID: 1406966110}
+  - component: {fileID: 1406966109}
+  - component: {fileID: 1406966107}
+  - component: {fileID: 1406966112}
+  - component: {fileID: 1406966113}
+  m_Layer: 0
+  m_Name: WorldBlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1406966107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619b9f9c26873fe488b44a1c718267de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Index: 0
+  SpawnIndex: 0
+  Meshes:
+  - {fileID: 1445429886155621308, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: -4193235821815013895, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: -890390005100210749, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: 3372727670194907163, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: -3111524074379182486, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: -3451673967657592552, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  - {fileID: -8892943533778691784, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+  meshFilter: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  Collider: {fileID: 0}
+--- !u!23 &1406966109
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c943ddbf51d866444859edf7969342dc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1406966110
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  m_Mesh: {fileID: -3451673967657592552, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
+--- !u!4 &1406966111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1406966112
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 10, z: 1}
+  m_Center: {x: 0, y: 5, z: 0.5}
+--- !u!65 &1406966113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406966106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &1408483965
 GameObject:
   m_ObjectHideFlags: 0
@@ -40956,20 +41185,34 @@ MonoBehaviour:
   Guns:
   - {fileID: 1780763201}
   - {fileID: 2004261178}
-  WorldParts:
-  - {fileID: 6027946684376020807}
-  - {fileID: 6027946684376020807}
-  - {fileID: 3996962767987314990}
-  - {fileID: 170783115218592383}
-  - {fileID: 6584726371197278650}
-  - {fileID: 6086905170028510909}
+  WorldBlock: {fileID: 1406966106}
   WorldProb:
-  - 0.5
-  - 0.5
-  - 0.5
-  - 0.5
-  - 1
-  - 1
+  - 100
+  - 7
+  - 7
+  - 7
+  - 7
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 3
+  - 28
+  Symmetries:
+  - X
+  - Q
+  - E
+  - Q
+  - X
+  Rules:
+  - ssssssss
+  - sppsssss
+  - pppssssp
+  - pppppssp
+  - pppppppp
   BaseBlock: {fileID: 6342996941279889298, guid: cc30d9974cb8dca4fb5b980792f64ea2,
     type: 3}
   Selected: 0
@@ -40979,6 +41222,7 @@ MonoBehaviour:
   Rot: {x: 0, y: 0, z: 0}
   Mirror: 1
   Crystal: {fileID: 7110885904361808958}
+  BuildHeight: 100
   buildRotSpeed: 50
   buildZoomSpeed: 1
   Building: 0
@@ -45889,24 +46133,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &170783115218592383
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8330620524219862813}
-  - component: {fileID: 5142370324829389401}
-  - component: {fileID: 6744925970808528730}
-  m_Layer: 0
-  m_Name: IntiriorCurveCliff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!23 &172894910681124815
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46027,51 +46253,6 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4760223293375302243}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &445059744610752972
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027946684376020807}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -46233,21 +46414,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &760874929043025168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6584726371197278650}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710677, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4156417282468119311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &784271499961879394
 MeshFilter:
@@ -46453,14 +46619,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1143911503795757428
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6584726371197278650}
-  m_Mesh: {fileID: -4193235821815013895, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!1 &1200696286582746009
 GameObject:
   m_ObjectHideFlags: 0
@@ -47191,14 +47349,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360819896836589932}
   m_Mesh: {fileID: 2121735762094594528, guid: ea9f1251e1e6c684baaecccbe3f2394f, type: 3}
---- !u!33 &2935826007236838388
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086905170028510909}
-  m_Mesh: {fileID: 1445429886155621308, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!33 &2948249359156700848
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -47358,51 +47508,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7630542125823770244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &3203750977777517009
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6584726371197278650}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!23 &3255242342601032056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47672,51 +47777,6 @@ MonoBehaviour:
   isAutomatic: 0
   AWS: {fileID: 0}
   UINeeds: 000000
---- !u!23 &3520141476438525653
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086905170028510909}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &3620208539857540410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47805,22 +47865,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2647618738125137879}
   m_Mesh: {fileID: -3267407988794447131, guid: ea9f1251e1e6c684baaecccbe3f2394f, type: 3}
---- !u!1 &3667442834383755701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4156417282468119311}
-  m_Layer: 0
-  m_Name: AirshipWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &3673695132429625056
 Transform:
   m_ObjectHideFlags: 0
@@ -48018,24 +48062,6 @@ MonoBehaviour:
   isAutomatic: 0
   AWS: {fileID: 0}
   UINeeds: 000000
---- !u!1 &3996962767987314990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4641346619889053002}
-  - component: {fileID: 5629857690495170128}
-  - component: {fileID: 8476744485942026008}
-  m_Layer: 0
-  m_Name: FlatCliff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &3998235559325427985
 Transform:
   m_ObjectHideFlags: 0
@@ -48139,26 +48165,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871242828898829383}
   m_Mesh: {fileID: 4493585093827132993, guid: ea9f1251e1e6c684baaecccbe3f2394f, type: 3}
---- !u!4 &4156417282468119311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667442834383755701}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4641346619889053002}
-  - {fileID: 8330620524219862813}
-  - {fileID: 760874929043025168}
-  - {fileID: 4955244421478483472}
-  - {fileID: 8505896648431086582}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4226675608783556368
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48490,21 +48496,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &4641346619889053002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996962767987314990}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4156417282468119311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4760223293375302243
 GameObject:
   m_ObjectHideFlags: 0
@@ -48564,21 +48555,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4955244421478483472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027946684376020807}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4156417282468119311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5054105110506113429
 MeshFilter:
@@ -48659,14 +48635,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!33 &5142370324829389401
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170783115218592383}
-  m_Mesh: {fileID: -2132460778858301809, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!33 &5231456115110272853
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49080,14 +49048,6 @@ MonoBehaviour:
   isAutomatic: 0
   AWS: {fileID: 0}
   UINeeds: 000000
---- !u!33 &5629857690495170128
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996962767987314990}
-  m_Mesh: {fileID: 3987588287638361828, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!4 &5635378443077779118
 Transform:
   m_ObjectHideFlags: 0
@@ -49261,43 +49221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &6027946684376020807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4955244421478483472}
-  - component: {fileID: 6815059346225811209}
-  - component: {fileID: 445059744610752972}
-  m_Layer: 0
-  m_Name: Platoe
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &6086905170028510909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8505896648431086582}
-  - component: {fileID: 2935826007236838388}
-  - component: {fileID: 3520141476438525653}
-  - component: {fileID: 8505896648431086583}
-  m_Layer: 0
-  m_Name: Sand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!33 &6115332823060435699
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49595,24 +49518,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7381549123058102210}
   m_Mesh: {fileID: 2352272465676470988, guid: e81c4c6e23040af4cb544eb2ac08dc43, type: 3}
---- !u!1 &6584726371197278650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 760874929043025168}
-  - component: {fileID: 1143911503795757428}
-  - component: {fileID: 3203750977777517009}
-  m_Layer: 0
-  m_Name: OuterCurveCliff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!23 &6642812902213591579
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49658,51 +49563,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &6744925970808528730
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170783115218592383}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &6753815856124947593
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49711,14 +49571,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7986831324848052827}
   m_Mesh: {fileID: -8678823145569952518, guid: ea9f1251e1e6c684baaecccbe3f2394f, type: 3}
---- !u!33 &6815059346225811209
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6027946684376020807}
-  m_Mesh: {fileID: -3111524074379182486, guid: 4292ad4d40406dd4da14a8c3ec516732, type: 3}
 --- !u!1 &7110885904361808958
 GameObject:
   m_ObjectHideFlags: 0
@@ -50359,7 +50211,7 @@ Transform:
   m_GameObject: {fileID: 7110885904361808958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -51798,21 +51650,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &8330620524219862813
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170783115218592383}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4156417282468119311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8358676835878844245
 Transform:
   m_ObjectHideFlags: 0
@@ -51961,87 +51798,6 @@ MonoBehaviour:
   isAutomatic: 0
   AWS: {fileID: 0}
   UINeeds: 010101
---- !u!23 &8476744485942026008
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3996962767987314990}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!4 &8505896648431086582
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086905170028510909}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4156417282468119311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8505896648431086583
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086905170028510909}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &8531556199227956584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52847,4 +52603,5 @@ SceneRoots:
   - {fileID: 2004261180}
   - {fileID: 795705655}
   - {fileID: 1825027686}
-  - {fileID: 4156417282468119311}
+  - {fileID: 249793097}
+  - {fileID: 1406966111}

@@ -52,12 +52,34 @@ public struct WorldCell
 
     public float[] Entropy;
     public bool Enquened;
-    public int Dist;
 
-    public WorldCell(float[] entropy, bool enquened, int dist){
+    public int Index;
+    public int Rot;
+
+    public WorldCell(float[] entropy, bool enquened, int index, int rot){
         this.Entropy = entropy;
         this.Enquened = enquened;
-        this.Dist = dist;
+        this.Index = index;
+        this.Rot = rot;
+
+
+
+    }
+}
+[System.Serializable]
+public struct RuleBlock
+{
+
+    public string Sides;
+    public string Symmetry;
+    public int Index;
+    public int Rot;
+
+    public RuleBlock(string sides, string symmetry, int index, int rot){
+        this.Sides = sides;
+        this.Symmetry = symmetry;
+        this.Index = index;
+        this.Rot = rot;
 
 
 
@@ -75,33 +97,41 @@ public class AirshipWorldScript : MonoBehaviour
     public GameObject[] Guns; //Guns, not blocks, can be placed in blocks
     
 
-    public GameObject[] WorldParts;//Pieces of a World
+    public GameObject WorldBlock; //The World Block
     private WorldCell[,] World = new WorldCell[50,50];
 
     private List<Vector2> Quene = new List<Vector2>();
     
-    public float[] WorldProb = {2f, 0.5f, 0.5f, 0.5f, 0f};
-
-    public float[][] ValidNeighbors = { 
-        new float[]{1,1,1,0,0,0},
-        new float[]{1,1,1,1,1,0},
-        new float[]{1,1,1,1,1,0},
-        new float[]{0,1,1,1,1,0},
-        new float[]{0,1,1,1,1,1}
-    };
+    public float[] WorldProb = {1,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f};
     /*
-    public float[][] ValidNeighbors = { 
-        new float[]{0,1,0,0,0,0},
-        new float[]{1,0,1,0,0,0},
-        new float[]{0,1,0,1,0,0}, 
-        new float[]{0,0,1,0,1,0}, 
-        new float[]{0,0,0,1,0,1}, 
-        new float[]{0,0,0,0,1,0}
-    };
+        -X: No Symmetry, every rotation and mirror changes nothing
+        -Q: All Rotations, and mirror is the same as one rotation
+        -E: All Rotations, and mirror is the same as two rotations
     */
-    
-    //public float[][] ValidNeighbors = { new float[]{1,1,1,1,1,1}, new float[]{1,1,1,1,1,1}, new float[]{1,1,1,1,1,1}, new float[]{1,1,1,1,1,1}, new float[]{1,1,1,1,1,1}, new float[]{1,1,1,1,1,1}};
+    public string[] Symmetries = {"X", "Q", "E", "Q", "X"};
+    public string[] Rules = {"ssssssss", "pssssssp", "pppssssp", "pppppssp", "pppppppp"};
 
+    private int[] Transfer = {5,4,7,6,1,0,3,2};
+
+    private List<RuleBlock> RuleBlocks = new List<RuleBlock>();
+
+    public float[,] ValidNeighborsN = { 
+        
+        
+    };
+    public float[,] ValidNeighborsE = { 
+        
+        
+    };
+    public float[,] ValidNeighborsS = { 
+        
+        
+    };
+    public float[,] ValidNeighborsW = { 
+       
+        
+    };
+    
     public GameObject BaseBlock; //The base of every block
 
     public int Selected = -1; //Index of selected block for spawning
@@ -121,6 +151,8 @@ public class AirshipWorldScript : MonoBehaviour
 
     public GameObject Crystal; //The Crystal (Make array for more crystals??)
 
+    public float BuildHeight = 10;
+
     
     public float buildRotSpeed = 5f;//Rot speed in build mode
     public float buildZoomSpeed = 5f;//Zoom speed in build mode (Should make build mode controls better)
@@ -134,6 +166,83 @@ public class AirshipWorldScript : MonoBehaviour
     public bool MouseOverUI = false; //Used to check if the mouse is over UI
 
 
+    public void ExpandRuleset(){
+        //Adds all of the rules into the RuleBlocks, and then expand them to account for symmetry
+
+        for(int i = 0; i< Rules.Length; i++){
+            RuleBlocks.Add(new RuleBlock(Rules[i], Symmetries[i], i ,0));
+            ExpandRule(RuleBlocks.Count-1);
+        }
+    }
+    public void ExpandRule(int index){
+        //Expands a single rule in the RuleBlocks, using the index of that block. 
+        //The new rules will be added directly after the index
+        int Rotations = 0;
+        //int Mirror = 0;
+
+        if(RuleBlocks[index].Symmetry == "Q"){
+            Rotations = 3;
+        }
+        if(RuleBlocks[index].Symmetry == "E"){
+            Rotations = 3;
+        }
+
+        string lastRotation = RuleBlocks[index].Sides;
+        for(int Rot = 0; Rot< Rotations; Rot++){
+            lastRotation = RotateRule(lastRotation);
+            RuleBlocks.Add(new RuleBlock(lastRotation, RuleBlocks[index].Symmetry, RuleBlocks[index].Index, Rot+1));
+            
+        }
+
+    }
+    public string RotateRule(string starter){
+        string last2 = starter.Substring(starter.Length-2, 2);
+        starter = starter.Remove(starter.Length-2);
+        return(last2 + starter);
+    }
+    public void MakeRules(){
+        //Finds what can go next to what and adds that to the ValidNeighbors arrays
+        int ValidAmount = RuleBlocks.Count;
+        ValidNeighborsN = new float[ValidAmount,ValidAmount];
+        ValidNeighborsE = new float[ValidAmount,ValidAmount];
+        ValidNeighborsS = new float[ValidAmount,ValidAmount];
+        ValidNeighborsW = new float[ValidAmount,ValidAmount];
+
+        
+        for(int B1 = 0; B1< RuleBlocks.Count; B1++){
+            for(int B2 = 0; B2< RuleBlocks.Count; B2++){
+                MakeRule(B1,B2);
+            }
+        }
+        
+
+    }
+    public void MakeRule(int Block1, int Block2){
+        //Finds what can go next to the Index in RuleBlocks, and then adds that info to the array direction
+        
+        if(CheckConpat(Block1, Block2, 0)){
+            ValidNeighborsN[Block1,Block2] = 1;
+            ValidNeighborsS[Block2,Block1] = 1;
+        }
+        if(CheckConpat(Block1, Block2, 2)){
+            ValidNeighborsE[Block1,Block2] = 1;
+            ValidNeighborsW[Block2,Block1] = 1;
+        }
+        if(CheckConpat(Block1, Block2, 4)){
+            ValidNeighborsS[Block1,Block2] = 1;
+            ValidNeighborsN[Block2,Block1] = 1;
+        }
+        if(CheckConpat(Block1, Block2, 6)){
+            ValidNeighborsW[Block1,Block2] = 1;
+            ValidNeighborsE[Block2,Block1] = 1;
+        }
+        
+    }
+
+    public bool CheckConpat(int Block1, int Block2, int Side){
+        return(RuleBlocks[Block1].Sides[Side] == RuleBlocks[Block2].Sides[Transfer[Side]] && RuleBlocks[Block1].Sides[Side+1] == RuleBlocks[Block2].Sides[Transfer[Side+1]]);
+        
+    }
     
     
     public List<int> FindOptions(int x, int y){
@@ -168,15 +277,20 @@ public class AirshipWorldScript : MonoBehaviour
     public void Collapse( int x, int y){
         
         int Chosen = WeightedRandom(x,y);
+
         
         
         for(int i = 0; i< World[x,y].Entropy.Length; i++){
             if(i == Chosen){
                 World[x,y].Entropy[i] = 1;
+                World[x,y].Index = RuleBlocks[i].Index;
+                World[x,y].Rot = RuleBlocks[i].Rot;
             }else{
                 World[x,y].Entropy[i] = 0;
             }
         }
+
+        
         
         //GameObject newWorldPart = Instantiate(WorldParts[Chosen], new Vector3(x*5,0,y*5), Quaternion.identity);
 
@@ -189,22 +303,23 @@ public class AirshipWorldScript : MonoBehaviour
         
     }
 
-    public bool IsCompatible( float[] AOptions, int OptionB){
+    public bool IsCompatible( float[] AOptions, int OptionB, float[,] RuleArray){
         for(int i = 0; i< AOptions.Length; i++){
-            if(AOptions[i] > 0 && ValidNeighbors[i][OptionB] > 0){
+
+            if(AOptions[i] > 0 && RuleArray[i,OptionB] > 0){
                 return(true);
             }
         }
         return(false);
     }
 
-    public void ProcessSingle(int x, int y, float[] AOptions){
+    public void ProcessSingle(int x, int y, float[] AOptions, float[,] RuleArray){
         if(World[x, y].Enquened == false){
         bool hasChanged = false;
         for(int OptionB = 0; OptionB < AOptions.Length; OptionB++){
 
             if(World[x,y].Entropy[OptionB] > 0 && FindOptions(x,y).Count > 1){
-                if(!IsCompatible(AOptions, OptionB)){
+                if(!IsCompatible(AOptions, OptionB, RuleArray)){
                     World[x,y].Entropy[OptionB] = 0;
                     hasChanged = true;
                     
@@ -228,18 +343,18 @@ public class AirshipWorldScript : MonoBehaviour
         //Debug.Log(AddedEntropy[0] + ", " + AddedEntropy[1] + ", " + AddedEntropy[2] + ", " + AddedEntropy[3] + ", " + AddedEntropy[4] + ", " + AddedEntropy[5]);
         
         if(x + 1 < World.GetLength(0)){
-            ProcessSingle(x + 1, y, World[x,y].Entropy);
+            ProcessSingle(x + 1, y, World[x,y].Entropy, ValidNeighborsE);
         }
         if(y + 1 < World.GetLength(1)){
-            ProcessSingle(x, y + 1, World[x,y].Entropy);
+            ProcessSingle(x, y + 1, World[x,y].Entropy, ValidNeighborsN);
         }
         
         if(x - 1 >= 0){
-            ProcessSingle(x - 1, y, World[x,y].Entropy);
+            ProcessSingle(x - 1, y, World[x,y].Entropy, ValidNeighborsW);
         }
         
         if(y - 1 >= 0){
-            ProcessSingle(x, y - 1, World[x,y].Entropy);
+            ProcessSingle(x, y - 1, World[x,y].Entropy, ValidNeighborsS);
         }
         
         
@@ -250,11 +365,18 @@ public class AirshipWorldScript : MonoBehaviour
     void Start()
     {
 
-        
+        ExpandRuleset();
+        MakeRules();
+        foreach(RuleBlock block in RuleBlocks){
+            //Debug.Log(block.Sides + ", " + block.Symmetry+ ", "+ block.Index);
+        }
+        foreach(int x in ValidNeighborsW){
+            //Debug.Log(x);
+        }
         //Set starting entropy of each block
         for(int x = 0; x<World.GetLength(0); x++){
             for(int y = 0; y<World.GetLength(1); y++){
-                World[x,y].Entropy = new float[WorldParts.Length];
+                World[x,y].Entropy = new float[RuleBlocks.Count];
                 for(int i = 0; i<World[x,y].Entropy.Length; i++){
                     
                     World[x,y].Entropy[i] = 1;
@@ -301,22 +423,24 @@ public class AirshipWorldScript : MonoBehaviour
                 
                 for(int X = 0; X<World.GetLength(0); X++){
                     for(int Y = 0; Y<World.GetLength(1); Y++){
-                        Debug.Log(World[X,Y].Entropy[0] + " , " + World[X,Y].Entropy[1] + " , " + World[X,Y].Entropy[2] + " , " + World[X,Y].Entropy[3] + " , " + World[X,Y].Entropy[4] + " , " + World[X,Y].Entropy[5]);
                         int index = 0;
+                        int Rot = 0;
                         for(int I = 0; I< World[X,Y].Entropy.Length; I++){
                             if(World[X,Y].Entropy[I] == 1){
-                                index = I;
-                            
+                                index = RuleBlocks[I].Index;
+                                Rot = RuleBlocks[I].Rot;
                             }
                         }
-                        GameObject newWorldPart = Instantiate(WorldParts[index], new Vector3(X*2,0,Y*2), Quaternion.identity);
+                        Debug.Log(index);
+                        GameObject newWorldPart = Instantiate(WorldBlock, new Vector3(X*2,0,Y*2), Quaternion.Euler(0,Rot*90,0));
 
                         newWorldPart.SetActive(true);
+                        newWorldPart.GetComponent<WorldBlockScript>().Index = World[X,Y].Index;
                         
                     }
                 }
                 
-                return;
+                break;
             }else{
                 Vector2 CollapsingPos = new Vector2(2,2);
                 if(i != 0){
@@ -348,31 +472,10 @@ public class AirshipWorldScript : MonoBehaviour
        
     }
 
-    int X = 0;
-    int Y = 0;
+
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(X < World.GetLength(0)){
-        int index = 0;
-        for(int I = 0; I< World[X,Y].Entropy.Length; I++){
-            if(World[X,Y].Entropy[I] == 1){
-                index = I;
-            
-            }
-        }
-        GameObject newWorldPart = Instantiate(WorldParts[index], new Vector3(X*5,0,Y*5), Quaternion.identity);
-
-        newWorldPart.SetActive(true);
-        
-        Y++;
-        if(Y >= World.GetLength(1)){
-            Y = 0;
-            X++;
-        }
-        }
-        */
         
 
 
@@ -400,7 +503,7 @@ public class AirshipWorldScript : MonoBehaviour
                     if(Crystal != null){
                         Building = true;
                         Cursor.lockState = CursorLockMode.None;//When start building, unlock cursor
-                        Crystal.transform.position = new Vector3(Mathf.Round(Crystal.transform.position.x),2,Mathf.Round(Crystal.transform.position.z));
+                        Crystal.transform.position = new Vector3(Mathf.Round(Crystal.transform.position.x),BuildHeight,Mathf.Round(Crystal.transform.position.z));
                         distFromCryst = -10;
                         cam.rotation = Quaternion.Euler(0,90,0);
                         MyCam.LookAt(Crystal.transform);
