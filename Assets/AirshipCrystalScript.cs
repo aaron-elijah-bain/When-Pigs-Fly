@@ -94,7 +94,7 @@ public class AirshipCrystalScript : MonoBehaviour
         }
 
         if(IsAI){
-            transform.position = new Vector3(transform.position.x, 20, transform.position.z) + -transform.forward*20*Time.deltaTime;
+            transform.position = new Vector3(transform.position.x, 30, transform.position.z) + -transform.forward*20*Time.deltaTime;
             transform.rotation = Quaternion.AngleAxis(10 * Time.deltaTime,Vector3.up) * transform.rotation;
 
         }

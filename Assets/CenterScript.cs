@@ -87,9 +87,10 @@ public class CenterScript : MonoBehaviour
         
     }
     void Start(){
-        if(Type[0].ToString() == "b"){
+        if(Type.Length > 7 && Type.Substring(0,7) == "Balloon"){
             CrystScript.myCrystal.BalloonCount ++;
         }
+        
     }
 
     // Update is called once per frame
@@ -103,7 +104,7 @@ public class CenterScript : MonoBehaviour
 
         
 
-        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false){
+        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false && transform.parent.parent.parent != null){
             if(Type == "Wheel"){
                 
 
@@ -148,7 +149,7 @@ public class CenterScript : MonoBehaviour
                 
                 
             }
-            if(Type[0].ToString() == "b"){
+            if(Type.Length > 7 && Type.Substring(0,7) == "Balloon"){
                 if(InputMultiplier > -1 && Input.GetKey(negInput)){
                     InputMultiplier -=0.05f;
                 }else if(InputMultiplier < 1 && Input.GetKey(posInput)){
@@ -200,12 +201,17 @@ public class CenterScript : MonoBehaviour
     }
     private void FixedUpdate() {
         
-        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false && CrystScript.myCrystal.TotalPowerUsage < CrystScript.myCrystal.MaxPower){
+        if(playerScript.isDriving  && AWS.Crystal == Crystalrb.gameObject && AWS.Building == false && CrystScript.myCrystal.TotalPowerUsage < CrystScript.myCrystal.MaxPower  && transform.parent.parent.parent != null){
             if(Type == "Prop" || Type == "Prop1"){
                 Crystalrb.AddForceAtPosition(transform.forward*Speed*InputMultiplier,transform.position,ForceMode.Force);
             }
             
-            if(Type[0].ToString() == "b"){
+           
+            
+        }
+        if(CrystScript.myCrystal.TotalPowerUsage < CrystScript.myCrystal.MaxPower && transform.parent.parent.parent != null){
+
+            if(Type.Length > 7 && Type.Substring(0,7) == "Balloon"){
                 
                 
                 float MyForce = ((Crystalrb.mass * -Physics.gravity.y)/CrystScript.myCrystal.BalloonCount)+(InputMultiplier*Speed);
@@ -215,13 +221,12 @@ public class CenterScript : MonoBehaviour
                 
 
             }
-            
         }
         
     }
 
     private void OnDestroy() {
-        if(Type[0].ToString() == "b"){
+        if(Type.Length > 7 && Type.Substring(0,7) == "Balloon"){
             CrystScript.myCrystal.BalloonCount--;
         }
         if(Type == "Wheel" && AWS.Crystal == Crystalrb.gameObject){

@@ -53,7 +53,9 @@ public class PigMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.position.y < -10){
+            transform.position = new Vector3(transform.position.x, 50, transform.position.z);
+        }
 
         if(!AWS.Building){
             

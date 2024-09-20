@@ -22,10 +22,14 @@ public class AirshipBulletScript : MonoBehaviour
         myAudio.pitch = 4;
         
     }
-
+    float counter = 0;
     // Update is called once per frame
     void Update()
     {
+       counter += Time.deltaTime;
+       if(counter > 10){
+        OnHit(gameObject);
+       }
        RaycastHit hit;
        if(Physics.Raycast(transform.position, transform.forward, out hit, 2 ,~LayerMask.GetMask("Bullet"))){
             if(hit.collider.gameObject != null){

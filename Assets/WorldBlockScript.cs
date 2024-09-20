@@ -3,8 +3,11 @@ using UnityEngine;
 public class WorldBlockScript : MonoBehaviour
 {
 
+    private AirshipWorldScript AWS;
     public int Index;        
     public int SpawnIndex;
+
+    
 
     public Mesh[] Meshes;
     
@@ -22,7 +25,9 @@ public class WorldBlockScript : MonoBehaviour
         meshFilter = GetComponent<MeshFilter>();
         meshRenderer = GetComponent<MeshRenderer>();
         Collider = GetComponent<BoxCollider>();
-        Recalcualte();
+
+        AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
+        
     }
 
     // Update is called once per frame
@@ -33,82 +38,41 @@ public class WorldBlockScript : MonoBehaviour
 
     public void Recalcualte(){
         SpawnIndex = Index;
-
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position+new Vector3(0,20,0) + transform.forward*2, -Vector3.up, out hit, 100f)){
-            North = hit.transform.gameObject.GetComponent<WorldBlockScript>();
-        }
-        if(Physics.Raycast(transform.position+new Vector3(0,20,0)  + transform.right*2, -Vector3.up, out hit, 100f)){
-            East = hit.transform.gameObject.GetComponent<WorldBlockScript>();
-        }
-        if(Physics.Raycast(transform.position+new Vector3(0,20,0)  - transform.forward*2, -Vector3.up, out hit, 100f)){
-            South = hit.transform.gameObject.GetComponent<WorldBlockScript>();
-        }
-        if(Physics.Raycast(transform.position+new Vector3(0,20,0) -transform.right*2, -Vector3.up, out hit, 100f)){
-            West = hit.transform.gameObject.GetComponent<WorldBlockScript>();
-        }
-            
         
-        if(Index == 1){
-            if(NumOfType(3,"N", "E") >= 1){
-                SpawnIndex = 5;
-            }
-            if(NumOfType(1,"N", "E") == 2){
-                SpawnIndex = 0;
-            }
-            
-        }
-        if(Index == 3){
-            if(NumOfType(1,"S", "W") == 2){
-                SpawnIndex = 6;
-            }
-            if(NumOfType(3,"S", "W") == 2){
-                SpawnIndex = 4;
-            }
-            
-        }
+        float height;
+        
 
         if(SpawnIndex == 0){
             Collider.enabled = false;
-        }
-        if(SpawnIndex != 0){
+        }else{
+
+            if(SpawnIndex <= 4){
+                height = 5;
+            }else{
+                height = 10;
+            }
             Collider.enabled = true;
             if(SpawnIndex == 1 || SpawnIndex == 5){
-            Collider.center = new Vector3(0.5f,5,0.5f);
-            Collider.size = new Vector3(1,10,1);
+            Collider.center = new Vector3(0.5f,height/2,0.5f);
+            Collider.size = new Vector3(1,height,1);
             }
-            if(SpawnIndex == 2){
-            Collider.center = new Vector3(0,5,0.5f);
-            Collider.size = new Vector3(2,10,1);
+            if(SpawnIndex == 2 || SpawnIndex == 6){
+            Collider.center = new Vector3(0,height/2,0.5f);
+            Collider.size = new Vector3(2,height,1);
             }
-            if(SpawnIndex == 3 || SpawnIndex == 4 || SpawnIndex == 6){
-            Collider.center = new Vector3(0,5,0);
-            Collider.size = new Vector3(2,10,2);
+            if(SpawnIndex == 3 || SpawnIndex == 7 || SpawnIndex == 4 || SpawnIndex == 8){
+            Collider.center = new Vector3(0,height/2,0);
+            Collider.size = new Vector3(2,height,2);
             }
+            
 
             
         }
 
         meshFilter.mesh = Meshes[SpawnIndex];
+
+        //transform.position = new Vector3(0,AWS.RuleBlocks[SpawnIndex].Height,0);
         
     }
 
-    public int NumOfType(int Type, string Choice1, string Choice2 ){
-        int num = 0;
-
-        if(North != null && (Choice1 == "N" || Choice2 =="N") &&North.Index == Type){
-            num ++;
-        }
-        if(East != null && (Choice1 == "E" || Choice2 =="E") && East.Index == Type){
-            num ++;
-        }
-        if(South != null && (Choice1 == "S" || Choice2 =="S")&& South.Index == Type){
-            num ++;
-        }
-        if(West != null && (Choice1 == "W" || Choice2 =="W") && West.Index == Type){
-            num ++;
-        }
-        return(num);
-
-    }
 }

@@ -16,6 +16,8 @@ public class ButtonScript : MonoBehaviour
 
     private TextMeshProUGUI text;
 
+    public PanelScript panelScript;
+
     private void Start() {
         
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
@@ -38,14 +40,14 @@ public class ButtonScript : MonoBehaviour
     private void Update() {
         if(Type == "Block"){
             if(AWS.Selected == num){
-                img.color = Color.blue;
+                img.color = new Color(0.5f,0.5f,1);
             }else{
                 img.color = Color.white;
             }
         }
         if(Type == "Gun"){
             if(AWS.SelectedGun == num){
-                img.color = Color.blue;
+                img.color = new Color(0.5f,0.5f,1);
             }else{
                 img.color = Color.white;
             }
@@ -60,6 +62,17 @@ public class ButtonScript : MonoBehaviour
         if(Type == "Gun"){
             AWS.Selected = -1;
             AWS.SelectedGun = num;
+        }
+    }
+
+    public void OpenPanel(){
+        if(Type == "Select"){
+            panelScript.Appearing = true;
+        }
+    }
+    public void ClosePanel(){
+        if(Type == "Select"){
+            panelScript.Appearing = false;
         }
     }
 }

@@ -13,17 +13,16 @@ public class AirshipExplosionScript : MonoBehaviour
         myCollider = GetComponent<SphereCollider>();
         myCollider.enabled = false;
         myCollider.enabled = true;
-        myCollider.radius = 0;
+        myCollider.radius = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
         Destroy(gameObject, 2.5f);
+        
 
-        if(myCollider.radius < 5){
-            myCollider.radius += 0.5f;
-        }
+        myCollider.enabled = false;
     }
     
     private void OnTriggerStay(Collider other){

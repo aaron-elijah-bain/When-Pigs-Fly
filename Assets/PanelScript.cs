@@ -10,6 +10,7 @@ public class PanelScript : MonoBehaviour
 {
 
     private RectTransform rt;
+    private RectTransform canvas;
     public bool Appearing = false;
 
     public float Speed = 1f;
@@ -47,27 +48,36 @@ public class PanelScript : MonoBehaviour
     {
         AWS = GameObject.FindWithTag("Spawner").GetComponent<AirshipWorldScript>();
         rt = GetComponent<RectTransform>();
+        canvas = transform.parent.gameObject.GetComponent<RectTransform>();
 
         buttonWidth = button1.GetComponent<RectTransform>().sizeDelta.x;
 
-        transform.position = new Vector3(rt.sizeDelta.x/2,-(rt.sizeDelta.y/2),0);
+        transform.position = new Vector3(0,(-rt.sizeDelta.y),0);
+        
+        if(Type == "Selector"){
+
+        }
+        GameObject butt;
         if(Type == "Build"){
-            GameObject butt;
-            for(var i = lowerBound; i <= upperBound; i++){
-                if((-rt.sizeDelta.x/2+buttonWidth/2) + i*(buttonWidth+10) > (rt.sizeDelta.x/2)-buttonWidth/2){
-                    butt = Instantiate(button1.gameObject,transform.position+new Vector3((-rt.sizeDelta.x*1.5f+buttonWidth) + i*(buttonWidth+10),-40,0),Quaternion.identity,transform) as GameObject;
+            
+            for(var i = 0; i <= upperBound-lowerBound; i++){
+                if((buttonWidth/2) + i*(buttonWidth+10) > -buttonWidth/2){
+                    butt = Instantiate(button1.gameObject,transform.position+new Vector3((buttonWidth/2) + 10 + i*(buttonWidth+10),rt.sizeDelta.y/2 + 40,0),Quaternion.identity,transform) as GameObject;
                     
                 }else{
-                    butt = Instantiate(button1.gameObject,transform.position+new Vector3((-rt.sizeDelta.x/2+buttonWidth/2) + i*(buttonWidth+10),40,0),Quaternion.identity,transform) as GameObject;
+                    butt = Instantiate(button1.gameObject,transform.position+new Vector3((buttonWidth/2) + 10 + i*(buttonWidth+10),rt.sizeDelta.y/2 - 40,0),Quaternion.identity,transform) as GameObject;
                 }
-                
+                butt.SetActive(true);
                 ButtonScript BS = butt.GetComponent<ButtonScript>();
-                BS.MyGameObject = AWS.Blocks[i];
+                BS.MyGameObject = AWS.Blocks[i+lowerBound];
                 BS.Type = "Block";
-                butt.name = AWS.Blocks[i].name;
+                butt.name = AWS.Blocks[i+lowerBound].name;
             }
+            
+        }
+        if(Type == "Guns"){
             for(int i = 0; i<AWS.Guns.Length+1; i++){
-                butt = Instantiate(button1.gameObject,transform.position+new Vector3(550+(i*buttonWidth),-40,0),Quaternion.identity,transform) as GameObject;
+                butt = Instantiate(button1.gameObject,transform.position+new Vector3((buttonWidth/2) + (i*buttonWidth+10),rt.sizeDelta.y/2 + 40,0),Quaternion.identity,transform) as GameObject;
                 ButtonScript BS = butt.GetComponent<ButtonScript>();
                 BS.num = i;
                 BS.Type = "Gun";
@@ -76,6 +86,7 @@ public class PanelScript : MonoBehaviour
                 }else{
                     butt.name = "No Gun";
                 }
+                butt.SetActive(true);
             }
         }
         if(Type == "Edit"){
@@ -94,11 +105,19 @@ public class PanelScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
-        if(Type == "Build"){
+    {   
+        if(AWS.Building == false){
+            Appearing = false;
+        }    
+
+        if(Type == "Build" || Type == "Gun"){
+            
+            
+            
+        }
+
+        if(Type == "Selector"){
             Appearing = AWS.Building;
-            
-            
         }
 
         if(Type == "Edit"){
@@ -234,11 +253,11 @@ public class PanelScript : MonoBehaviour
            
         }
 
-        if(transform.position.y > 0-(rt.sizeDelta.y/2) && Appearing == false){
-            transform.position = new Vector3(rt.sizeDelta.x/2,transform.position.y-Speed,0);
+        if(transform.position.y > (-rt.sizeDelta.y) && Appearing == false){
+            transform.position = new Vector3(0,transform.position.y-Speed,0);
         }
-        if(transform.position.y < (rt.sizeDelta.y/2) && Appearing == true){
-            transform.position = new Vector3(rt.sizeDelta.x/2,transform.position.y+Speed,0);
+        if(transform.position.y < 0 && Appearing == true){
+            transform.position = new Vector3(0,transform.position.y+Speed,0);
         }
 
         
